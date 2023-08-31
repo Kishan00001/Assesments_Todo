@@ -1,0 +1,7 @@
+﻿Date: 24/08/2023
+Questions 1: Create a console app that has a function to create an array, fill the data and display the contents of the array.
+Question 2: Create a new file in the name of your name and create a function a function to demonstrate the example of a class usage and call its functions in it. Call this function in the Main program.
+Question 3: Create a function to demonstrate the usage of method overriding. Call the function in the Main. U can comment the other function calls in the Main
+Question 4: Create an enum for WeekDays, Create a function that internally creates the enum object based on the input given by the User and display the selected Enum Value. Call the function in the Main Program that is already created.
+Question 5: Create an example to demonstrate the usage of interface programming.
+Question 6: Create a program to show display the contents of the Array passed as argument in reverse order. You should create a function that calls the function that takes an array as an argument and returns the array in reverse order. Call the function and reverse the order.

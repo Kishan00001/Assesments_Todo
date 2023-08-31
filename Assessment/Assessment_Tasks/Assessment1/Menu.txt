@@ -1,0 +1,8 @@
+﻿~~~~~~~~~~~~~~~~~~~EXPENSE TRACKER SOFTWARE~~~~~~~~~~~~~~~~~~
+TO ADD A NEW EXPENSE --------------->PRESS N
+TO UPDATE AN EXISTING EXPENSE------->PRESS U
+TO DELETE AN EXPENSE---------------->PRESS D
+TO FIND AN EXPENSE------------------>PRESS F
+TO SHOW ALL EXPENSES---------------->PRESS A
+TO SHOW EXPENSES STATISTICS--------->PRESS S
+PS: ANY OTHER KEY IMPLIES TO EXIT...........................

@@ -1,0 +1,7 @@
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\obj\Debug\Assessment_Tasks.csproj.AssemblyReference.cache
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\obj\Debug\Assessment_Tasks.csproj.CoreCompileInputs.cache
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\bin\Debug\Assessment_Tasks.exe.config
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\bin\Debug\Assessment_Tasks.exe
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\bin\Debug\Assessment_Tasks.pdb
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\obj\Debug\Assessment_Tasks.exe
+C:\Users\kkumarmaharana\source\repos\Assessment\Assessment_Tasks\obj\Debug\Assessment_Tasks.pdb
