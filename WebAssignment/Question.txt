@@ -1,0 +1,17 @@
+Create a toll plaza software for a tolling company called Navayuga Infrastructure. The application is a single page app that will allow user to make entry of the vehicle, type of vehicle and generate the toll amount for the vehicle, which is collected manually. This app will be used by Nelamangala Toll Plaza to collect the toll fees for their range till Tumkur. The categories of vehicles are: Bikes, LMV, HMV, Heavy Trucks, There is a fixed price of each vehicle.
+
+This app shall have statistics link that displays the total amount collected for each kind of vehicle. The app shall have a seach page that filters the vehicles based on category and vehicle registration number.
+
+Technology stack: HTML, CSS and JQuery
+
+Storage: LocalStorage
+
+
+
+Approach:
+------------
+one page...
+make entry...:: reg no....type....... date....amount..
+Bikes: 20, LMV:50 , HMV:80, Heavy Trucks:100
+
+KA127212
