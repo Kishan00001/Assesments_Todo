@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navayuga Infrastructure</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../lib/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const toll = new TollPlaza();
+        function populate(records) {
+            $("table").find("tr:gt(0)").remove();
+            for (const rec of records) {
+                const tr = `<tr><td>${rec.regno}</td>
+                                <td>${rec.name}</td>
+                                <td>${rec.category}</td>
+                                <td>${rec.date}</td>
+                                <td>${rec.amount}</td>
+                            </tr>`;
+                $("table").append(tr);
+            }
+            var amount = findTotalToll(records);
+            document.getElementById("amount").innerHTML="";
+            $("#amount").append(amount);
+        }
+        function onAddFeature() {
+            const regid = $("#txtNewId").val();
+            const name = $("#txtNewName").val();
+            const category = $("#slNewCategory").val();
+            const date = new Date($("#txtNewDate").val());
+            const amount = toll.findAmount(category);
+
+            const vehicle = new Vehicle(regid, name, category, date, amount);
+            toll.addNewEntry(vehicle);
+            alert("Vehicle Toll Amount is: "+amount+"\nVehicle Entry is successful.. ");
+            $("div").fadeOut(1000);
+            $("div:first").fadeIn(200);
+            populate(toll.getAllVehicles());
+        }
+        function findTotalToll(records){
+            var amt =0;
+            for (const rec of records)
+                amt = amt + rec.amount;
+            
+        return amt;
+        }
+        function getVehiclesById(){
+            var id = prompt("Enter Vehicle Registration Id to search");
+            let records = toll.findVehiclesById(id.toLowerCase());
+            populate(records);
+        }
+        function getVehiclesByDate() {
+            var datenow = prompt("Enter the date to search");
+            let records = toll.findVehiclesByDate(new Date(datenow));
+            populate(records);
+        }
+        function getVehiclesByCategory() {
+            var cats = prompt("Enter the category to search expenses");
+            let records = toll.findVehiclesByCategory(cats.toLowerCase());
+            populate(records);
+        }
+
+        const eventMapping = () => {
+            $("div").fadeOut(1);
+            $("li>a:first").click(() => {
+                $("div").fadeOut(1000);
+                $("div:eq(1)").fadeIn(1000);
+                populate(toll.getAllVehicles());
+            })
+            $("li>a:eq(1)").click(() => {
+                $("div").fadeOut(1000);
+                $("div:first").fadeIn(1000);
+                populate(toll.getAllVehicles());
+            })
+            $("li>a:eq(2)").click(() => {
+                $("div").fadeOut(1000);
+                $("div:first").fadeIn(1000);
+                getVehiclesByDate();
+            })
+            $("li>a:eq(3)").click(() => {
+                $("div").fadeOut(1000);
+                $("div:first").fadeIn(1000);
+                getVehiclesByCategory();
+            })
+            $("li>a:eq(4)").click(() => {
+                $("div").fadeOut(1000);
+                $("div:first").fadeIn(1000);
+                getVehiclesById();
+            })
+            $("li>a:last").click(() => {
+                $("div").fadeOut(1000);
+                $("div:last").fadeIn(1000);
+            })
+            $("button:first").click(onAddFeature);
+        }
+         $().ready(() => {
+            eventMapping();
+        })
+    </script>
+</head>
+<body>
+    <h1>Navayuga Infrastructure</h1>
+    <hr>
+    <nav>
+        <ul style="list-style-type: none;">
+            <li><a href="#">Make An Entry</a></li>
+            <li><a href="#">Show All Statistics</a></li>
+            <li><a href="#">Show Statistics By Date</a></li>
+            <li><a href="#">Show Statistics By Category</a></li>
+            <li><a href="#">Show Statistics By Vehicle Number</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>    
+    <hr>
+    <div>
+        <h2>List Of Vehicles</h2>
+        <table border="1">
+            <tr>
+                <th>Vehicle Registration ID:</th>
+                <th>Vehicle Name</th>
+                <th>Vehicle Category</th>
+                <th>Entry Date</th>
+                <th>TollAmount</th>
+            </tr>
+        </table>
+        <p>The total collected Toll is </p>
+        <p id="amount"></p>
+    </div>
+    <div>
+        <h2>Make New Entry</h2>
+        <hr>
+        <section>
+            <p>Enter The Vehicle Registration ID : <input type="text" id="txtNewId"></p>
+            <p>Enter The Vehicle Name: <input type="text" id="txtNewName"></p>
+            <p>Select the Category:
+                <select id="slNewCategory">
+                    <option value="Bike">Bike</option>
+                    <option value="LMV">LMV</option>
+                    <option value="HMV">HMV</option>
+                    <option value="Heavy Truck">Heavy Truck</option>
+                </select>
+            </p>
+            <p>Enter the Date: <input type="date" id="txtNewDate"></p>
+            <!-- <p>Enter the Amount: <input type="number" id="txtNewAmount"></p> -->
+            <p>
+                <button>Make Entry</button>
+            </p>
+        </section>
+    </div>
+    <div>
+        <h1>About Us</h1>
+        <p>NAVAYUGA INFRASTRUCTURE is a software solution that enables efficient and transparent toll collection and management for highway projects. It is developed by Navayuga Infotech, a CMMI Level 5 certified IT company that offers innovative and flexible software solutions to customers across the globe1. NAVAYUGA INFRASTRUCTURE integrates various features such as vehicle classification, RFID, smart card, CCTV, weigh-in-motion, and dynamic message sign to provide a seamless and hassle-free experience for both the toll operators and the commuters. NAVAYUGA INFRASTRUCTURE is currently being used by Navayuga Devanahalli Tollway Pvt Ltd, which operates one of the fastest growing ports in India.</p> 
+    </div>
+</body>
+</html>
