@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row">
+        <h1>{{title}}</h1>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <label for="empId">Enter the Id:</label>
+                    <input type="number" name="empId" class="form-control" formControlName="empId">
+                    <p *ngIf = "(empId?.invalid && empId?.touched || empId?.dirty)">
+                        <span *ngIf="empId?.errors?.['required']" class="err">
+                            Employee Id is mandatory
+                        </span>
+                        <span *ngIf="empId?.errors?.['min']" class="err">
+                            Employee Id must be minimum 100
+                        </span>
+                        <span *ngIf="empId?.errors?.['max']" class="err">
+                            Employee Id must be maximum 200
+                        </span>
+                    </p>
+                </div>
+                <div>
+                    <label for="empName">Enter the Name:</label>
+                    <input type="text" name="empName" class="form-control" formControlName="empName">
+                    <p *ngIf="!empName?.valid && empName?.touched">
+                        <span class="err" *ngIf="empName?.errors?.['required']">
+                            Name is mandatory
+                        </span>
+                    </p>
+                </div>
+                <div>
+                    <label for="emailAddress">Enter the Email Address: </label>
+                    <input type="email" name="emailAddress" class="form-control" formControlName="emailAddress">
+                    <p *ngIf="!emailAddress?.valid && emailAddress?.touched">
+                        <span class="err" *ngIf="emailAddress?.errors?.['required']">
+                            Email is mandatory
+                        </span>
+                        <span class="err" *ngIf="emailAddress?.errors?.['email']">
+                            Email is not in proper format
+                        </span>
+                    </p>
+                </div>
+                <div>
+                    <label for="phoneNo">Enter the Phone: </label>
+                    <input type="tel" name="phoneNo" class="form-control" formControlName="phoneNo">
+                    <p *ngIf="!phoneNo?.valid && phoneNo?.touched">
+                        <span class="err" *ngIf="phoneNo?.errors?.['required']">
+                            Phone No is mandatory
+                        </span>
+                        
+                        <span class="err" *ngIf="phoneNo?.errors?.['min']">
+                            Phone No should be minimum 10 digit no
+                        </span>
+                        <span class="err" *ngIf="phoneNo?.errors?.['max']">
+                            Phone No should be maximum 10 digit no
+                        </span>
+                        <span class="err" *ngIf="phoneNo?.errors?.['minLength']">
+                            Invalid Phone Number entered (enter more numbers)
+                        </span>
+                        <span class="err" *ngIf="phoneNo?.errors?.['maxLength']">
+                            Invalid Phone Number entered (enter less numbers)
+                        </span>
+                    </p>
+                </div>
+                <div>
+                    <label for="imageFile">Enter the Image File: </label>
+                    <input type="text" name="imageFile" class="form-control" formControlName="imageFile">
+
+                </div>
+                <button type="submit" class="btn btn-danger" [disabled]="this.empForm.invalid">Validate</button>
+            </form>
+        </div>
+    </div>
+</div>

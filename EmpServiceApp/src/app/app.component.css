@@ -1,0 +1,6 @@
+.container{
+    background:radial-gradient(burlywood, darkcyan);
+    /* background-color: darkcyan; */
+    border-radius: 30px;
+    padding-bottom: 15px;
+}

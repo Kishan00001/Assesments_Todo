@@ -1,0 +1,28 @@
+<!-- <p>edit-emp works!</p> -->
+<div class="container">
+    <!-- {{newEmp | json}} -->
+    <div class="row">
+        <h2 class="h2 m-2 p-3">Updating Employee</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            Selected Employee : <input type="text" [(ngModel)] = "updEmp.empId"  class="form-control m-3" disabled/>
+            Enter the Name to update: <input type="text" [(ngModel)] = "updEmp.empName" class="form-control m-3" placeholder="Enter to update employee name"/>
+            Enter the Email to update : <input type="email" [(ngModel)] = "updEmp.emailAddress" class="form-control m-3"/>
+            Enter the Phone to update : <input type="number" [(ngModel)] = "updEmp.phoneNo" class="form-control m-3"/>
+            Enter the Image File Name only: <input type="text" [(ngModel)] = "updEmp.imageFile" class="form-control m-3"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-success m-2" (click)="onUpdateEmp()">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+                Update Employee
+            </button>
+            <button class="btn btn-secondary" routerLink="/">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Back
+            </button>
+        </div>
+    </div>
+</div>

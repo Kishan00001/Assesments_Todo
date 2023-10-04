@@ -1,0 +1,10 @@
+.imgCard{
+    width: 140px;
+    height: 150px;
+}
+.card-header{
+    background-color: orange;
+}
+.card-body{
+    background-color: antiquewhite;
+}
